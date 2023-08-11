@@ -8,8 +8,17 @@ This script is actually very similar to the one above, but we’re going to be u
 WARNING: This process is irreversible!
 
 Mac / Linux:
-$ cd documents 
-$ find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+```shell
+cd documents
+```
+```shell
+find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+```
+
 Windows:
-$ cd documents 
+```shell
+ cd documents
+```
+```shell
 $ FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" rm -rf "%d"
+```
