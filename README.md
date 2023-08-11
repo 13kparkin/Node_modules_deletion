@@ -1,19 +1,15 @@
 
 # Node Modules Cleanup Script
+Delete all node_modules found in a Directory:
+NOTE: Use caution here, and make sure that you are in a directory where you’re comfortable removing all the instances of node_modules, run the script above to see a full list of them all before deleting.
 
-This Python script helps you find and potentially delete "node_modules" folders, which are commonly associated with Node.js projects. It calculates the size of each "node_modules" folder and provides an option to delete them.
+This script is actually very similar to the one above, but we’re going to be utilizing rm -rf to completely delete them.
 
-**Note: Be cautious when deleting files and folders from your system. Always have a backup of important data before proceeding.**
+WARNING: This process is irreversible!
 
-## How to Use
-
-1. Make sure you have Python installed on your system.
-
-2. Download the script file `delete_node_modules.py` from this repository.
-
-3. Open your terminal and navigate to the directory where the script is located (make sure ypu put the script at the root of your system or the root of all your projects).
-
-4. Run the script by executing the following command:
-
-   ```shell
-   python delete_node_modules.py
+Mac / Linux:
+$ cd documents 
+$ find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+Windows:
+$ cd documents 
+$ FOR /d /r . %d in (node_modules) DO @IF EXIST "%d" rm -rf "%d"
